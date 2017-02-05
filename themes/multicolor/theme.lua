@@ -15,7 +15,7 @@ local os    = { getenv = os.getenv, setlocale = os.setlocale }
 
 local theme                                     = {}
 theme.confdir                                   = os.getenv("HOME") .. "/.config/awesome/themes/multicolor"
-theme.wallpaper                                 = theme.confdir .. "/wall.png"
+theme.wallpaper                                 = theme.confdir .. "/Retaliator.png"
 theme.font                                      = "xos4 Terminus 8"
 theme.menu_bg_normal                            = "#000000"
 theme.menu_bg_focus                             = "#000000"
@@ -251,6 +251,18 @@ theme.mpd = lain.widgets.mpd({
     end
 })
 
+--function wallpaper(s)
+	--Set Wallpaper Dependent on Screen
+	--Add Wallpapers Below
+--	local retaliator = theme.confdir .. "/Retaliator.png"
+--	local starfarer = theme.confdir .. "/Starfarer.jpg"
+--	if(s == 1) then
+	--	gears.wallpaper.centered(retaliator, s)
+--	else
+--		gears.wallpaper.centered(starfarer, s)
+
+--end
+
 function theme.at_screen_connect(s)
     -- Quake application
     s.quake = lain.util.quake({ app = awful.util.terminal })
@@ -259,7 +271,7 @@ function theme.at_screen_connect(s)
     if type(wallpaper) == "function" then
         theme.wallpaper = theme.wallpaper(s)
     end
-    gears.wallpaper.maximized(theme.wallpaper, s, true)
+    gears.wallpaper.maximized(theme.wallpaper, s, false)
 
     -- Tags
     awful.tag(awful.util.tagnames, s, awful.layout.layouts)
@@ -313,12 +325,12 @@ function theme.at_screen_connect(s)
             cpu.widget,
             fsicon,
             theme.fs.widget,
-            weathericon,
-            theme.weather.widget,
+            --weathericon,
+            --theme.weather.widget,
             tempicon,
             temp.widget,
-            baticon,
-            bat.widget,
+            --baticon,
+            --bat.widget,
             clockicon,
             mytextclock,
         },
